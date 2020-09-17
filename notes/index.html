@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1></h1>
+    <ul class="character-list-container">
+       
+    </ul>
+
+
+
+    <script id ="character-template" type="text/x-handlebars-template">
+        <li class="character">
+            <h1> {{name}}</h1>
+            <img src="/img/{{code}}.jpeg" alt="" width="180" height="220">
+            <p>Address: {{address}}</p>
+            <p>House: {{house}}</p>
+            <p>Location: {{location}}</p>
+            <p>Hobby: {{hobby}}</p>
+            {{#if name}}<p>This is {{name}}'s Bio</p>{{/if}}
+        </li>
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <script >
+
+        var cast = {
+            "characters": [
+                {
+                    "name": "Ankita Yadav",
+                    "address": "Adarsh Nagar",
+                    "house": "B/313",
+                    "location": "Chhattisgarh",
+                    "code": "Ankita",
+                    "hobby": "Singing, Dancing, Poetry-Writing, Badminton"
+                }
+            ]
+        }
+
+
+        $(document).ready(function(){
+            var characterTemplate = $("#character-template").html();
+            var compiledCharacterTemplate = Handlebars.compile(characterTemplate);
+            console.log(cast.characters.name)
+            $(".character-list-container").html(compiledCharacterTemplate(cast.characters[0]));
+        })
+
+
+    </script>
+
+    
+</body>
+</html>
