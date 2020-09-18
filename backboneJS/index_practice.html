@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BackboneJS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css">
-
-
-
 </head>
+
 <body>
-    
     <div class="container">
         <h1 class="text-2xl text-center font-extrabold">User Manager</h1>
         <hr>
         <div class="page"></div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.11.0/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
 
     <script>
-
-      $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
-       'https://my-json-server.typicode.com/Anku2211/data'
-      options.url = '' + options.url;
-    });
+        $.ajaxPrefilter(function (options, originalOptions, jqXHR) {
+            'https://my-json-server.typicode.com/Anku2211/data'
+            options.url = '' + options.url;
+        });
         // fetch('https://my-json-server.typicode.com/Anku2211/data')
         // .then(response => response.json())
         // .then(json => console.log(json))
@@ -35,33 +31,32 @@
             url: '/users'
         })
         var UserList = Backbone.View.extend({
-            el:'.page',
-            render: function(){
+            el: '.page',
+            render: function () {
                 var that = this;
                 var users = new Users();
                 users.fetch({
-                    success: function (){
-                    
-                  that.$el.html('!Content Should Show Here')
-                     
-                       
+                    success: function () {
+                        that.$el.html('!Content Should Show Here')
+                    },
+                    error: function () {
+                        alert("user fetch failed!!");
                     }
                 })
             }
-
         })
         var Router = Backbone.Router.extend({
             routes: {
                 '': 'home'
             }
         });
-
         var userList = new UserList();
         var router = new Router();
-        router.on('route:home', function (){
+        router.on('route:home', function () {
             userList.render();
         })
         Backbone.history.start();
     </script>
 </body>
+
 </html>
