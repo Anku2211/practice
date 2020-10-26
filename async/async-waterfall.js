@@ -1,4 +1,5 @@
 const async = require('async')
+const fs = require('fs')
 
 async.waterfall([
     function getName(callback){
@@ -21,3 +22,4 @@ async.waterfall([
 ], function(err,result){
     console.log(result)
 })
+
