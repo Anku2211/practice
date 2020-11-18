@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css">
+</head>
+<body>
+    <h1 class="text-3xl m-4  font-bold">Contact </h1>
+    <table class="flex flex-col ">
+        <div class="bg-gray-700 p-8 m-4 w-1/2">
+
+            <div class="m-4">
+                <label for="first_name">First Name:</label>
+                <input class="first-name-input " type="text" name="first_name" id="first_name">
+            </div>
+    
+            <div class="m-4">
+                <label for="last_name">Last Name:</label>
+                <input class="last-name-input " type="text" name="last_name" id="last_name">
+            </div>
+            <div class="m-4">
+                <label for="gender">Gender:</label>
+                <select class="gender-input" type="" name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+               </select>
+            </div>
+            <div class="m-4">
+                <label for="requirement_type">Requirement Type:</label>
+                <input  type="radio" name="requirement_type1" id="requirement_type1">
+                <label for="requirement_type1" class="req-type-input " >Personal</label>
+                <input  type="radio" name="requirement_type1" id="requirement_type2">
+                <label for="requirement_type1" class="req-type-input2 " >Professional</label>
+    
+    
+            </div>
+            <div class="m-4">
+                <label for="notification">Get Notification</label>
+                <input type="checkbox" class="notification" name="notification" id="notification">
+            </div class="m-10">
+    
+            <div class="m-4">
+                <button class="btn-submit bg-white p-1">Submit </button>
+            </div>
+           
+           
+        </div>
+        <tbody class="details-list mt-4 " ></tbody>
+    </table>
+    <script type="text/template" class="details-list-template">
+        <td><span class="" style=" w-full; border:1px solid gray; padding:2px 40px;"><%= firstName %> </span></td>
+        <td><span class=" " style=" w-full; border:1px solid gray; padding:2px 40px;"><%= lastName %> </span></td>
+        <td><span class="" style=" w-full; border:1px solid gray; padding:2px 40px;"><%= gender %> </span></td>
+        <td><span class="" style=" w-full; border:1px solid gray; padding:2px 40px;"><%= reqType %> </span></td>
+        <td><span class="" style=" w-full; border:1px solid gray; padding:2px 40px;"><%= notification %> </span></td>
+
+        <!-- <td>
+            <button class="btn-edit" style="padding:2px 8px; background-color:green; border-radius:5px; ">Edit</button> 
+            <button class="btn-delete" style="padding:2px 8px; background-color:red; border-radius:5px; ">Delete</button>
+        </td> -->
+
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.11.0/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+    <script src="./server.js"></script>
+</body>
+</html>
