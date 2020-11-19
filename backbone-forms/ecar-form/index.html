@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecar Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.6/tailwind.min.css">
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="http://backbonejs.org/backbone.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.1/backbone-forms.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.1/backbone-forms.min.js"></script>
+    <script src="./main.js"></script>
+</head>
+<body>
+    <script id="formTemplate" type="text/html">
+        <form class="bg-gray-700 w-2/4 flex flex-col justify-center  p-12 m-4" action="submit.html">
+          <h1 class="text-white font-semibold">Select Your Preferences</h1>
+      
+          <!-- <h2>About you</h2> -->
+          <div data-fields="subject,channel,language,appIcon"></div>
+      
+          <!-- <h2>Login details</h2> -->
+          <div data-fields="gradeLevel,contentType,author"></div>
+      
+          <!-- <h2>Languages you code in</h2> -->
+          <div data-fields="medium,board"></div>
+          <input type="submit" class="btn w-1/5 my-1 submit" />
+        </form>
+      </script>
+</body>
+</html>
