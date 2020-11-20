@@ -33,6 +33,7 @@ $(function () {
   //Run validation before submitting
   form.on('submit', function (event) {
     var errs = form.validate();
+    console.log(firstName.show());
 
     if (errs) event.preventDefault();
   });

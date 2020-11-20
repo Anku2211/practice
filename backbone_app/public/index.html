@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backbone App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.8.10/tailwind.min.css">
+</head>
+<body>
+    <h1 class="text-3xl text-center font-bold">Backbone App</h1>
+    <table class="flex flex-col justify-center items-center mt-8">
+        <thread class="">
+            <tr class="flex">
+                <th class="px-16 py-2 border shadow-xl">Name</th>
+                <th class="px-16 py-2 border shadow-xl">Email</th>
+                <th class="px-16 py-2 border shadow-xl">Contact</th>
+            </tr>
+            <tr class="mt-20 ">
+                <td class="border"><input type="text" class=" pl-1 py-2 name-input  "></td>
+                <td class="border"><input type="text" class=" pl-1 py-2 email-input  "></td>
+                <td class="border"><input type="text" class=" pl-1 py-2 contact-input "></td>
+                <td><button class="btn-add bg-blue-600 px-3 py-2 mt-2 rounded text-white">Add </button></td>
+                
+            </tr>
+        </thread>
+        <tbody class="details-list mt-8  " ></tbody>
+    </table>
+    <script type="text/template" class="details-list-template">
+        <td><span class="name  " style="border:1px solid gray; padding:8px 50px;"><%= name %> </span></td>
+        <td><span class="email " style="border:1px solid gray; padding:8px 50px;"><%= email %> </span></td>
+        <td><span class="contact" style="border:1px solid gray; padding:8px 50px;"><%= contact %> </span></td>
+        <td>
+            <td><button class="btn btn-warning edit-detail">Edit</button> <button class="btn btn-danger delete-detail">Delete</button><button class="btn btn-success update-detail" style="display:none">Update</button> <button class="btn btn-danger cancel" style="display:none">Cancel</button></td>
+        </td>
+
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.11.0/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.4.0/backbone-min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

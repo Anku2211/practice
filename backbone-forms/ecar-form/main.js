@@ -1,3 +1,14 @@
+var Detail = Backbone.Model.extend({
+  defaults: {
+    subject: '',
+    channel: '',
+    author: '',
+  },
+});
+
+var Details = Backbone.Collection.extend({});
+var details = new Details();
+
 $(function () {
   //Extend Backbone.Form and customise, set schema
   var RegisterForm = Backbone.Form.extend({
@@ -80,7 +91,7 @@ $(function () {
       },
       appIcon: {
         type: 'Radio',
-        options: ['select'],
+        options: ['Image'],
       },
 
       gradeLevel: {
@@ -130,15 +141,31 @@ $(function () {
   });
 
   //Create the form instance and add to the page
-  var form = new RegisterForm().render();
+  var form = new RegisterForm({
+    model: new Detail(),
+  }).render();
 
   $('body').append(form.el);
 
   //Run validation before submitting
   form.on('submit', function (event) {
     var errs = form.validate();
-    console.log(firstName.value());
 
     if (errs) event.preventDefault();
+  });
+});
+
+$(document).ready(function () {
+  $('.btn-submit').on('click', function () {
+    var detail = new Detail({
+      subject: $('#subject').val(),
+      channel: $('#channel').val(),
+      author: $('#author').val(),
+    });
+    $('#subject').val('');
+    $('#channel').val('');
+    $('#author').val('');
+    console.log(detail.toJSON());
+    details.submit(detail);
   });
 });

@@ -1,65 +1,63 @@
-// model
+// var express = require('express');
+// var bodyParser = require('body-parser');
+// var mongoose = require('mongoose');
 
-var Detail = Backbone.Model.extend({
-    defaults:{
-        name:"",
-        email: "",
-        contact:"",
-    }
-})
+// mongoose.connect('mongodb://localhost/blogroll');
 
-// collection 
-var Details = Backbone.Collection.extend({})
+// var Schema = mongoose.Schema;
 
-var details = new Details();
+// var DetailSchema = new Schema({
+//   name: String,
+//   email: String,
+//   contact: String,
+// });
 
-// Backbone View for one detail
+// mongoose.model('Detail', DetailSchema);
 
-var DetailView = Backbone.View.extend({
-	model: new Detail(),
-	tagName: 'tr',
-	initialize: function() {
-		this.template = _.template($('.details-list-template').html());
-	},
-	
-	render: function() {
-		this.$el.html(this.template(this.model.toJSON()));
-		return this;
-	}
-});
+// var Detail = mongoose.model('Detail');
 
-// Backbone View for all details
+// var app = express();
 
-var DetailsView = Backbone.View.extend({
-	model: details,
-	el: $('.details-list'),
-	initialize: function() {
-		var self = this;
-		self.model.on('add', self.render, self);
-	},
-	render: function() {
-		var self = this;
-		this.$el.html('');
-		_.each(this.model.toArray(), function(detail) {
-			self.$el.append((new DetailView({model: detail})).render().$el);
-		});
-		return this;
-	}
-});
+// app.use(bodyParser.json());
+// app.use(express.static(__dirname + '/public'));
 
-var detailsView = new DetailsView();
+// // ROUTES
 
-$(document).ready(function() {
-	$('.btn-add').on('click', function() {
-		var detail = new Detail({
-			name: $('.name-input').val(),
-			email: $('.email-input').val(),
-			contact: $('.contact-input').val()
-		});
-		$('.name-input').val('');
-		$('.email-input').val('');
-		$('.contact-input').val('');
-		console.log(detail.toJSON());
-		details.add(detail);
-	})
-})
+// app.get('/api/details', function (req, res) {
+//   Detail.find(function (err, docs) {
+//     docs.forEach(function (item) {
+//       console.log('Received a GET request for _id: ' + item._id);
+//     });
+//     res.send(docs);
+//   });
+// });
+
+// app.post('/api/details', function (req, res) {
+//   console.log('Received a POST request:');
+//   for (var key in req.body) {
+//     console.log(key + ': ' + req.body[key]);
+//   }
+//   var detail = new Detail(req.body);
+//   detail.save(function (err, doc) {
+//     res.send(doc);
+//   });
+// });
+
+// app.delete('/api/details/:id', function (req, res) {
+//   console.log('Received a DELETE request for _id: ' + req.params.id);
+//   Detail.remove({ _id: req.params.id }, function (err, doc) {
+//     res.send({ _id: req.params.id });
+//   });
+// });
+
+// app.put('/api/details/:id', function (req, res) {
+//   console.log('Received an UPDATE request for _id: ' + req.params.id);
+//   Detail.update({ _id: req.params.id }, req.body, function (err) {
+//     res.send({ _id: req.params.id });
+//   });
+// });
+
+// var port = 7000;
+
+// app.listen(port);
+// console.log('server on ' + port);

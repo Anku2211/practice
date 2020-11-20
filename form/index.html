@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backbone-Form</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+   <h1>Contacts</h1>
+
+   <form id="addContact">
+        <div>
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name">
+        </div>
+
+        <div>
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name">
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select type="" name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+           </select>
+        </div>
+        <div>
+            <label for="requirement_type">Requirement Type:</label>
+            <input type="radio" name="requirement_type1" id="requirement_type">
+            <label for="requirement_type1">Personal</label>
+            <input type="radio" name="requirement_type1" id="requirement_type">
+            <label for="requirement_type1">Professional</label>
+
+
+        </div>
+        <div>
+            <label for="notification">Get Notification</label>
+            <input type="checkbox" name="notification" id="notification">
+        </div>
+
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+       
+    </form>
+
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="http://backbonejs.org/backbone.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/models.js"></script>
+    <script src="js/collections.js"></script>
+    <script src="js/views.js"></script>
+    <script src="js/router.js"></script>
+
+
+
+
+
+
+    
+</body>
+</html>
