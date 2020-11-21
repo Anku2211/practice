@@ -2,7 +2,12 @@ var Detail = Backbone.Model.extend({
   defaults: {
     subject: '',
     channel: '',
+    language: '',
+    gradeLevel: '',
+    contentType: '',
     author: '',
+    medium: '',
+    board: '',
   },
 });
 
@@ -158,13 +163,23 @@ $(function () {
 $(document).ready(function () {
   $('.btn-submit').on('click', function () {
     var detail = new Detail({
-      subject: $('#subject').val(),
-      channel: $('#channel').val(),
-      author: $('#author').val(),
+      subject: $('#c1_subject').val(),
+      channel: $('#c1_channel').val(),
+      author: $('#c1_author').val(),
+      language: $('#c1_language').val(),
+      gradeLevel: $('#c1_gradeLevel').val(),
+      contentType: $('#c1_contentType').val(),
+      medium: $('#c1_medium').val(),
+      board: $('#c1_board').val(),
     });
-    $('#subject').val('');
-    $('#channel').val('');
-    $('#author').val('');
+    $('#c1_subject').val('');
+    $('#c1_channel').val('');
+    $('#c1_author').val('');
+    $('#c1_language').val();
+    $('#c1_gradeLevel').val();
+    $('#c1_contentType').val();
+    $('#c1_medium').val();
+    $('#c1_board').val();
     console.log(detail.toJSON());
     details.submit(detail);
   });
