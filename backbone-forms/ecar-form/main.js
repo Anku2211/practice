@@ -14,6 +14,38 @@ var Detail = Backbone.Model.extend({
 var Details = Backbone.Collection.extend({});
 var details = new Details();
 
+var DetailView = Backbone.View.extend({
+  model: new Detail(),
+  tagName: 'span',
+  initialize: function () {
+    this.template = _.template($('.details-list-template').html());
+  },
+
+  render: function () {
+    this.$el.html(this.template(this.model.toJSON()));
+    return this;
+  },
+});
+
+var DetailsView = Backbone.View.extend({
+  model: details,
+  tagName: 'div',
+  el: $('.details-list'),
+  initialize: function () {
+    var self = this;
+    self.model.on('add', self.render, self);
+  },
+  render: function () {
+    var self = this;
+    this.$el.html('');
+    _.each(this.model.toArray(), function (detail) {
+      self.$el.append(new DetailView({ model: detail }).render().$el);
+    });
+    return this;
+  },
+});
+var detailsView = new DetailsView();
+
 $(function () {
   //Extend Backbone.Form and customise, set schema
   var RegisterForm = Backbone.Form.extend({
@@ -181,6 +213,6 @@ $(document).ready(function () {
     $('#c1_medium').val();
     $('#c1_board').val();
     console.log(detail.toJSON());
-    details.submit(detail);
+    details.add(detail);
   });
 });
