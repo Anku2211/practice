@@ -1,0 +1,19 @@
+{
+  "name": "ppt-module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jszip-utils": "^0.1.0",
+    "pptx-compose": "^1.0.0",
+    "pptx2html": "^0.3.4",
+    "pptx2json": "0.0.3",
+    "simple-json-to-html-converter": "^1.0.7"
+  }
+}
