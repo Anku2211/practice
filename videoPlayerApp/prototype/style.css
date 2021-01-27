@@ -1,0 +1,49 @@
+
+body {
+	padding: 40px;
+}
+
+body, p {
+   font-size: 24px; 
+}
+
+
+#video-container {
+	width: 500px;
+}
+#video-name{
+  text-align: center;
+}
+#videos {
+
+	list-style: none;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	padding-left: 0;
+	margin-top: 0;
+}
+
+#videos li {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	cursor: pointer;
+}
+
+#videos li:hover {
+	background: #8e8c8c;
+}
+
+
+#player-container {
+	width: 660px;
+	height: 500px;
+  background: #EDE8E8;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container{
+  display: flex;
+}
